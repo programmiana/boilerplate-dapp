@@ -6,7 +6,7 @@ import { useLoadBlockchainData } from "./use-load-blockchain-data";
 
 const App = () => {
   const eth = useEthMetaMask();
-  const data = useLoadBlockchainData(eth);
+  const data = useLoadBlockchainData({ eth });
 
   console.log(eth);
   if (!eth || !data || (data && !data.accounts)) return <p>Loading...</p>;
