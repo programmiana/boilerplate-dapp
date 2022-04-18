@@ -1,18 +1,27 @@
 import * as React from "react";
 import ReactDOM from "react-dom";
+import Web3 from "web3";
+import { BlockData } from "./block-data";
 import { Container } from "./container";
-import { useEthMetaMask } from "./use-eth-meta-mask";
-import { useLoadBlockchainData } from "./use-load-blockchain-data";
+import { useMetamask } from "./use-eth-meta-mask";
 
 const App = () => {
-  const eth = useEthMetaMask();
-  const data = useLoadBlockchainData(eth);
+  const metaMask = useMetamask();
 
-  console.log(eth);
-  if (!eth || !data || (data && !data.accounts)) return <p>Loading...</p>;
+  if (!metaMask) {
+    return (
+      <Container>
+        <p>Please install metamask to proceed.</p>;
+      </Container>
+    );
+  }
+
+  if (!metaMask.web3Provider) return <p>Loading web 3 provider...</p>;
+  console.log(metaMask.web3Provider);
+
   return (
     <Container>
-      <p>hello, your account is: {data.accounts[0]}</p>
+      <BlockData isConnected={true} />
     </Container>
   );
 };

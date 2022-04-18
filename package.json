@@ -27,10 +27,13 @@
   "dependencies": {
     "@types/styled-components": "^5.1.12",
     "babel-loader": "^8.2.2",
+    "ganache": "^7.0.4",
+    "ganache-cli": "^6.12.2",
     "html-webpack-plugin": "^5.3.2",
     "node-polyfill-webpack-plugin": "^1.1.4",
     "regenerator-runtime": "^0.13.9",
     "styled-components": "^5.3.0",
+    "truffle": "^5.5.10",
     "web3": "^1.7.3"
   }
 }
